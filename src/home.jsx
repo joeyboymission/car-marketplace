@@ -1,12 +1,11 @@
-import { SignInButton } from "@clerk/clerk-react";
-import { Button } from "./components/ui/button";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
 
 function home() {
   return (
     <>
-      <SignInButton>
-        <Button>Click to Begin!</Button>
-      </SignInButton>
+        <Header />
+        <Hero />
     </>
   );
 }
