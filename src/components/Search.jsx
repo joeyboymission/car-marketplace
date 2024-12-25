@@ -5,9 +5,9 @@ import Data from "@/Shared/Data";
 
 function Search() {
   return (
-    <div className="flex flex-col md:flex-row gap-10 p-2 md:p-4 px-5 items-center w-[60%] md:w-[60%] bg-white rounded-md md:rounded-full">
+    <div className="flex flex-col md:flex-row gap-10 p-2 md:p-2 px-4 items-center w-[60%] md:w-[60%] bg-white rounded-md md:rounded-full">
       <Select>
-        <SelectTrigger className="outline-none border-none shadow-none w-full text-large">
+        <SelectTrigger className="outline-none border-none shadow-none w-full text-[1rem]">
           <SelectValue placeholder="Cars" />
         </SelectTrigger>
         <SelectContent>
@@ -17,7 +17,7 @@ function Search() {
       </Select>
       <Separator orientation="vertical" className="hidden md:block" />
       <Select>
-        <SelectTrigger className="outline-none border-none shadow-none w-full text-large">
+        <SelectTrigger className="outline-none border-none shadow-none w-full text-[1rem]">
           <SelectValue placeholder="Car Makes" />
         </SelectTrigger>
         <SelectContent>
@@ -28,7 +28,7 @@ function Search() {
       </Select>
       <Separator orientation="vertical" className="hidden md:block" />
       <Select>
-        <SelectTrigger className="outline-none border-none shadow-none w-full text-large">
+        <SelectTrigger className="outline-none border-none shadow-none w-full text-[1rem]">
           <SelectValue placeholder="Pricing" />
         </SelectTrigger>
         <SelectContent>

@@ -1,6 +1,7 @@
 import Categories from "./components/Categories";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import MostSearchedCar from "./components/MostSearchedCar";
 
 function home() {
   return (
@@ -8,6 +9,7 @@ function home() {
         <Header />
         <Hero />
         <Categories />
+        <MostSearchedCar />
     </>
   );
 }
