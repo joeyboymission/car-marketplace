@@ -2,7 +2,7 @@ import { UserButton, useUser } from "@clerk/clerk-react";
 import { Button } from "./ui/button";
 
 function Header() {
-  const { user, isSignedIn } = useUser();
+  const { isSignedIn } = useUser();
 
   return (
     <div className="flex justify-between items-center shadow-sm p-5">
