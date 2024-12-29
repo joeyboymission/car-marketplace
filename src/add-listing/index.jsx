@@ -21,9 +21,17 @@ import { CarListing } from "./../../configs/schema";
 import { db } from "./../../configs";
 
 function AddListing() {
+  // Declare the 'formData' and 'featuresData' state variable using the 'useState' hook
   const [formData, setFormData] = useState([]); {/* It will store the form data */}
+  const [featuresData, setFeaturesData] = useState([]); {/* It will store the features data */}
 
-  {/* It will handle the input change */}
+  /**
+   * Used to save User Input
+   * @param {*} name
+   * @param {*} value
+   */
+
+  // It will handle the input change
   const handleInputChange = (name, value) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -32,15 +40,32 @@ function AddListing() {
     console.log(formData); {/* It will log the form data in the console */}
   };
 
-  {/* It will handle the form submission */}
+    /**
+   * Used to save Feature List
+   * @param {*} name
+   * @param {*} value
+   */
+
+  // It will handle the features change
+  const handleFeaturesChange = (name  , value) => {
+    setFeaturesData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+    console.log(featuresData); {/* It will log the features data in the console */}
+  };
+
+  // It will handle the form submission
   const onsubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); {/* It will prevent the default form submission */}
     console.log(formData);
     
     try {
-      const result = await db.insert(CarListing)
-        .values(formData)
-        .execute();
+      // Insert the data into the database both 'formData' and 'featuresData'
+      const result = await db.insert(CarListing).values({
+        ...formData,
+        features: featuresData
+      }).execute();
 
       if (result) {
         console.log("Data Inserted Successfully");
@@ -90,7 +115,7 @@ function AddListing() {
               {
                 features.features.map((item, index) => (
                   <div key={index} className="flex items-center space-x-2">
-                    <Checkbox onCheckedChange={(value) => handleInputChange(item.name, value)}/> {/* It returns item.name: value in every ticked checkboxes */}
+                    <Checkbox onCheckedChange={(value) => handleFeaturesChange(item.name, value)}/> {/* It returns item.name: value in every ticked checkboxes */}
                     <h2>{item.label}</h2>
                   </div>
                 ))
