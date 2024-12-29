@@ -13,9 +13,11 @@ import { Separator } from "@/components/ui/separator";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 
-// Import the 'PropTypes' and React 'useState' library
+// Import the 'PropTypes' and 'useState' from the 'react' library
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { CarListing } from "./../../configs/schema";
+import { db } from "./../../configs";
 
 function AddListing() {
   const [formData, setFormData] = useState([]); {/* It will store the form data */}
@@ -30,10 +32,24 @@ function AddListing() {
   };
 
   {/* It will handle the form submission */}
-  const onsubmit = (e) => {
-    e.preventDefault(); {/* It will prevent the default form submission */}
-    console.log(formData); {/* It will log the form data in the console */}
-  }
+  const onsubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+    
+    try {
+      const result = await db.insert(CarListing)
+        .values(formData)
+        .execute();
+
+      if (result) {
+        console.log("Data Inserted Successfully");
+      } else {
+        console.log("Data Insertion Failed");
+      }
+    } catch (error) {
+      console.error("Database Error:", error.message);
+    }
+  };
 
   return (
     <div>
@@ -102,7 +118,8 @@ InputField.propTypes = {
     required: PropTypes.bool,
     placeholder: PropTypes.string,
     options: PropTypes.array
-  }).isRequired
+  }).isRequired,
+  handleInputChange: PropTypes.func.isRequired  // Added missing PropType
 }
 
 DropdownField.propTypes = {
@@ -112,7 +129,8 @@ DropdownField.propTypes = {
     required: PropTypes.bool,
     placeholder: PropTypes.string,
     options: PropTypes.array
-  }).isRequired
+  }).isRequired,
+  handleInputChange: PropTypes.func.isRequired  // Added missing PropType
 }
 
 export default AddListing;

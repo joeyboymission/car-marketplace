@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function TextAreaField({item, handleInputChange}) {
   return (
     <div>
-        <Textarea required={item.required} placeholder={item?.initialName} onChange={(e) => handleInputChange(item.name, e.targe.value)}/>
+        <Textarea required={item.required} placeholder={item?.initialName} onChange={(e) => handleInputChange(item.name, e.target.value)}/>
     </div>
   )
 }
