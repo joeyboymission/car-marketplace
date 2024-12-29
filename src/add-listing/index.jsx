@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import InputField from "./components/inputField";
 import DropdownField from "./components/DropdownField";
 import TextAreaField from "./components/TextAreaField";
+import IconField from "./components/IconField";
 
 // Import the 'Separator', 'Checkbox' and 'Button' component
 import { Separator } from "@/components/ui/separator";
@@ -69,7 +70,7 @@ function AddListing() {
                         Condition 3: if the 'FieldType' is 'textarea' then display 'Textarea' component
                         Else: return null
                       */}
-                        <label className="text-sm">{item?.label} {item.required && <span className="text-red-500">*</span>}</label>
+                        <label className="flex items-center gap-2 mb-2 text-sm"><IconField icon={item.icon}/>{item?.label} {item.required && <span className="text-red-500">*</span>}</label>
                         {
                           item.fieldType == 'text' || item.fieldType == 'number' ? <InputField item={item} handleInputChange={handleInputChange}/>
                           : item.fieldType == 'dropdown' ? <DropdownField item={item} handleInputChange={handleInputChange}/>

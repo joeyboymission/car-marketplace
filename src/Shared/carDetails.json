@@ -6,21 +6,21 @@
         "fieldType": "text",
         "required": true,
         "column": 2,
-        "icon": "FaClipboardList"
+        "icon": "ClipboardList"
       },
       {
         "label": "Tagline",
         "name": "tagline",
         "fieldType": "text",
         "column": 2,
-        "icon": "FaTag"
+        "icon": "Tag"
       },
       {
         "label": "Original Price",
         "name": "originalPrice",
         "fieldType": "text",
         "column": 1,
-        "icon": "FaDollarSign"
+        "icon": "DollarSign"
       },
       {
         "label": "Selling Price",
@@ -28,7 +28,7 @@
         "fieldType": "text",
         "required": true,
         "column": 1,
-        "icon": "FaMoneyBillAlt"
+        "icon": "Banknote"
       },
       {
         "label": "Category",
@@ -38,7 +38,7 @@
         "options": ["Sedan", "SUV", "Truck", "Coupe", "Convertible", "Van", "Hatchback","Electric","Hybrid"],
         "required": true,
         "column": 1,
-        "icon": "FaCar"
+        "icon": "CarFront"
       },
       {
         "label": "Condition",
@@ -48,7 +48,7 @@
         "required": true,
         "options": ["New", "Used", "Certified Pre-Owned"],
         "column": 1,
-        "icon": "FaCheckCircle"
+        "icon": "CheckCircle"
       },
       
       {
@@ -102,7 +102,7 @@
           "Bugatti"
         ],
         "column": 1,
-        "icon": "FaIndustry"
+        "icon": "Factory"
       },
       {
         "label": "Model",
@@ -110,7 +110,7 @@
         "fieldType": "text",
         "required": true,
         "column": 1,
-        "icon": "FaCarSide"
+        "icon": "Car"
       },
       {
         "label": "Year",
@@ -118,7 +118,7 @@
         "fieldType": "number",
         "required": true,
         "column": 1,
-        "icon": "FaCalendarAlt"
+        "icon": "Calendar"
       },
       {
         "label": "Drive Type",
@@ -128,7 +128,7 @@
         "options": ["FWD", "RWD", "AWD", "4WD"],
         "required": true,
         "column": 1,
-        "icon": "FaRoad"
+        "icon": "Waypoints"
       },
       {
         "label": "Transmission",
@@ -138,7 +138,7 @@
         "options": ["Automatic", "Manual", "CVT"],
         "required": true,
         "column": 1,
-        "icon": "FaCogs"
+        "icon": "Cog"
       },
       {
         "label": "Fuel Type",
@@ -148,7 +148,7 @@
         "options": ["Petrol", "Diesel", "Electric", "Hybrid"],
         "required": true,
         "column": 1,
-        "icon": "FaGasPump"
+        "icon": "Fuel"
       },
       {
         "label": "Mileage",
@@ -156,21 +156,21 @@
         "fieldType": "number",
         "required": true,
         "column": 1,
-        "icon": "FaTachometerAlt"
+        "icon": "Gauge"
       },
       {
         "label": "Engine Size",
         "name": "engineSize",
         "fieldType": "text",
         "column": 1,
-        "icon": "FaWrench"
+        "icon": "Wrench"
       },
       {
         "label": "Cylinder",
         "name": "cylinder",
         "fieldType": "number",
         "column": 1,
-        "icon": "FaCircle"
+        "icon": "Circle"
       },
       {
         "label": "Color",
@@ -180,7 +180,7 @@
         "required": true,
         "options": ["Black", "Blue", "Gold", "Pink", "Red", "Silver", "White"],
         "column": 2,
-        "icon": "FaPalette"
+        "icon": "Palette"
       },
       {
         "label": "Door",
@@ -188,14 +188,14 @@
         "fieldType": "number",
         "required": true,
         "column": 1,
-        "icon": "FaDoorClosed"
+        "icon": "DoorClosed"
       },
       {
         "label": "VIN",
         "name": "vin",
         "fieldType": "text",
         "column": 1,
-        "icon": "FaIdCard"
+        "icon": "IdCard"
       },
       {
         "label": "Offer Type",
@@ -204,7 +204,7 @@
         "fieldType": "dropdown",
         "options": ["Buy", "Hot Offer", "Sell", "Urgent"],
         "column": 2,
-        "icon": "FaTags"
+        "icon": "Tags"
       },
       {
         "label": "Listing Description",
@@ -213,7 +213,7 @@
         "fieldType": "textarea",
         "required": true,
         "column": 2,
-        "icon": "FaFileAlt"
+        "icon": "File"
       }
     ]
   }
