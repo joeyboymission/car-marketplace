@@ -8,6 +8,7 @@ import InputField from "./components/inputField";
 import DropdownField from "./components/DropdownField";
 import TextAreaField from "./components/TextAreaField";
 import IconField from "./components/IconField";
+import UploadImages from "./components/UploadImages";
 
 // Import the 'Separator', 'Checkbox' and 'Button' component
 import { Separator } from "@/components/ui/separator";
@@ -77,6 +78,7 @@ function AddListing() {
     }
   };
 
+
   return (
     <div>
       <Header />
@@ -123,6 +125,7 @@ function AddListing() {
             </div>
           </div>
 
+          <Separator className="my-6"/>
           {/* Car Images */}
 
 
@@ -131,6 +134,7 @@ function AddListing() {
             <Button type="submit" onClick={(e) => onsubmit(e)}>Submit</Button>
           </div>
         </form>
+        <UploadImages />
       </div>
     </div>
   );
