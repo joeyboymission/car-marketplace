@@ -1,0 +1,219 @@
+{
+    "carDetails": [
+      {
+        "label": "Listing Title",
+        "name": "listingTitle",
+        "fieldType": "text",
+        "required": true,
+        "column": 2,
+        "icon": "ClipboardList"
+      },
+      {
+        "label": "Tagline",
+        "name": "tagline",
+        "fieldType": "text",
+        "column": 2,
+        "icon": "Tag"
+      },
+      {
+        "label": "Original Price",
+        "name": "originalPrice",
+        "fieldType": "text",
+        "column": 1,
+        "icon": "DollarSign"
+      },
+      {
+        "label": "Selling Price",
+        "name": "sellingPrice",
+        "fieldType": "text",
+        "required": true,
+        "column": 1,
+        "icon": "Banknote"
+      },
+      {
+        "label": "Category",
+        "name": "category",
+        "initialName": "Select Category",
+        "fieldType": "dropdown",
+        "options": ["Sedan", "SUV", "Truck", "Coupe", "Convertible", "Van", "Hatchback","Electric","Hybrid"],
+        "required": true,
+        "column": 1,
+        "icon": "CarFront"
+      },
+      {
+        "label": "Condition",
+        "name": "condition",
+        "initialName": "Select Condition",
+        "fieldType": "dropdown",
+        "required": true,
+        "options": ["New", "Used", "Certified Pre-Owned"],
+        "column": 1,
+        "icon": "CheckCircle"
+      },
+      
+      {
+        "label": "Make",
+        "name": "make",
+        "initialName": "Select Make",
+        "fieldType": "dropdown",
+        "required": true,
+        "options": [
+          "Toyota",
+          "Honda",
+          "Ford",
+          "Chevrolet",
+          "Nissan",
+          "BMW",
+          "Mercedes-Benz",
+          "Audi",
+          "Tesla",
+          "Volkswagen",
+          "Hyundai",
+          "Kia",
+          "Lexus",
+          "Subaru",
+          "Mazda",
+          "Jeep",
+          "Dodge",
+          "Ram",
+          "GMC",
+          "Volvo",
+          "Land Rover",
+          "Jaguar",
+          "Porsche",
+          "Fiat",
+          "Alfa Romeo",
+          "Mitsubishi",
+          "Infiniti",
+          "Acura",
+          "Mini",
+          "Buick",
+          "Cadillac",
+          "Chrysler",
+          "Lincoln",
+          "Maserati",
+          "Bentley",
+          "Rolls-Royce",
+          "Aston Martin",
+          "Ferrari",
+          "Lamborghini",
+          "McLaren",
+          "Pagani",
+          "Bugatti"
+        ],
+        "column": 1,
+        "icon": "Factory"
+      },
+      {
+        "label": "Model",
+        "name": "model",
+        "fieldType": "text",
+        "required": true,
+        "column": 1,
+        "icon": "Car"
+      },
+      {
+        "label": "Year",
+        "name": "year",
+        "fieldType": "number",
+        "required": true,
+        "column": 1,
+        "icon": "Calendar"
+      },
+      {
+        "label": "Drive Type",
+        "name": "driveType",
+        "initialName": "Select Drive Type",
+        "fieldType": "dropdown",
+        "options": ["FWD", "RWD", "AWD", "4WD"],
+        "required": true,
+        "column": 1,
+        "icon": "Waypoints"
+      },
+      {
+        "label": "Transmission",
+        "name": "transmission",
+        "initialName":"Select Category",
+        "fieldType": "dropdown",
+        "options": ["Automatic", "Manual", "CVT"],
+        "required": true,
+        "column": 1,
+        "icon": "Cog"
+      },
+      {
+        "label": "Fuel Type",
+        "name": "fuelType",
+        "initialName": "Select Fuel Type",
+        "fieldType": "dropdown",
+        "options": ["Petrol", "Diesel", "Electric", "Hybrid"],
+        "required": true,
+        "column": 1,
+        "icon": "Fuel"
+      },
+      {
+        "label": "Mileage",
+        "name": "mileage",
+        "fieldType": "number",
+        "required": true,
+        "column": 1,
+        "icon": "Gauge"
+      },
+      {
+        "label": "Engine Size",
+        "name": "engineSize",
+        "fieldType": "text",
+        "column": 1,
+        "icon": "Wrench"
+      },
+      {
+        "label": "Cylinder",
+        "name": "cylinder",
+        "fieldType": "number",
+        "column": 1,
+        "icon": "Circle"
+      },
+      {
+        "label": "Color",
+        "name": "color",
+        "initialName": "Select Color",
+        "fieldType": "dropdown",
+        "required": true,
+        "options": ["Black", "Blue", "Gold", "Pink", "Red", "Silver", "White"],
+        "column": 2,
+        "icon": "Palette"
+      },
+      {
+        "label": "Door",
+        "name": "door",
+        "fieldType": "number",
+        "required": true,
+        "column": 1,
+        "icon": "DoorClosed"
+      },
+      {
+        "label": "VIN",
+        "name": "vin",
+        "fieldType": "text",
+        "column": 1,
+        "icon": "IdCard"
+      },
+      {
+        "label": "Offer Type",
+        "name": "offerType",
+        "initialName": "Select Offer Type",
+        "fieldType": "dropdown",
+        "options": ["Buy", "Hot Offer", "Sell", "Urgent"],
+        "column": 2,
+        "icon": "Tags"
+      },
+      {
+        "label": "Listing Description",
+        "name": "listingDescription",
+        "initialName": "Enter Description",
+        "fieldType": "textarea",
+        "required": true,
+        "column": 2,
+        "icon": "File"
+      }
+    ]
+  }

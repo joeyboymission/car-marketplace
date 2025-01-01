@@ -3,9 +3,14 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import { ClerkProvider } from '@clerk/clerk-react'
+import { Toaster } from './components/ui/sonner'
 
 import Home from './home'
 import Contact from './contact'
+import Profile from './profile'
+import AddListing from './add-listing'
+import DraftPage from './draftpage'
+
 
 const router = createBrowserRouter(
   [
@@ -16,6 +21,18 @@ const router = createBrowserRouter(
     {
       path: '/contact',
       element: <Contact />,
+    },
+    {
+      path: '/profile',
+      element: <Profile />,
+    },
+    {
+      path: '/add-listing',
+      element: <AddListing />,
+    },
+    {
+      path: '/draft-page',
+      element: <DraftPage />,
     }
   ]
 )
@@ -31,6 +48,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
       <RouterProvider router={router}/>    
+      <Toaster />
     </ClerkProvider>
   </StrictMode>,
 )
