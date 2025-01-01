@@ -14,17 +14,25 @@ import UploadImages from "./components/UploadImages";
 import { Separator } from "@/components/ui/separator";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
-// Import the 'PropTypes' and 'useState' from the 'react' library
+// Import icons and images
+import { Loader } from "lucide-react"; // Change LoaderCircle to Loader
+
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { CarListing } from "./../../configs/schema";
 import { db } from "./../../configs";
+import { useNavigate } from "react-router";
+
 
 function AddListing() {
-  // Declare the 'formData' and 'featuresData' state variable using the 'useState' hook
-  const [formData, setFormData] = useState([]); {/* It will store the form data */}
-  const [featuresData, setFeaturesData] = useState([]); {/* It will store the features data */}
+  // Declare the 'formData', 'featuresData' and 'imageUrls' state variable using the 'useState' hook
+  const [formData, setFormData] = useState([]);  // Change back to array
+  const [featuresData, setFeaturesData] = useState([]);  // Change back to array
+  const [triggerUploadImages, setTriggerUploadImages] = useState(null); {/* Change initial state from false to null */} 
+  const [loader, setLoader] = useState(false); {/* It will store the loader state */} 
+  const navigate = useNavigate(); {/* It will navigate to the specific route */}
 
   /**
    * Used to save User Input
@@ -56,25 +64,39 @@ function AddListing() {
     console.log(featuresData); {/* It will log the features data in the console */}
   };
 
+
   // It will handle the form submission
   const onsubmit = async (e) => {
-    e.preventDefault(); {/* It will prevent the default form submission */}
-    console.log(formData);
-    
+    e.preventDefault();
+    setLoader(true);
+    toast('Please wait, saving your listing...'); // Fix toast implementation
+
     try {
-      // Insert the data into the database both 'formData' and 'featuresData'
+      if (Object.keys(formData).length === 0) {
+        toast("Please fill in the required fields");
+        setLoader(false);
+        return;
+      }
+
+      // Insert the data into the database both 'formData', 'featuresData' and 'imageUrls'
       const result = await db.insert(CarListing).values({
         ...formData,
-        features: featuresData
-      }).execute();
+        features: featuresData,
+        images: [] // Initialize empty array, will be populated by URLs later
+      }).returning({id:CarListing.id}).execute();
 
-      if (result) {
-        console.log("Data Inserted Successfully");
+      if (result && result[0]?.id) {
+        setTriggerUploadImages(result[0].id); {/* It will trigger the image upload */}
+        console.log("Listing created successfully!");
+        toast.success("Listing created successfully!");
       } else {
-        console.log("Data Insertion Failed");
+        toast("Failed to create listing");
+        setLoader(false); {/* It will set the loader to false */}
       }
     } catch (error) {
       console.error("Database Error:", error.message);
+      toast("Something went wrong");
+      setLoader(false);
     }
   };
 
@@ -84,7 +106,7 @@ function AddListing() {
       <Header />
       <div className="px-10 md:px-20 my-10">
         <h2 className="font-bold text-2xl">Add New Listing</h2>
-        <form className="p-10 bg-white border rounded-xl mt-10">
+        <form className="p-10 bg-white border rounded-xl mt-10" onSubmit={onsubmit}>
           {/* Car Details */}
           <h2 className="font-medium text-xl mb-6">Car Details</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -127,14 +149,23 @@ function AddListing() {
 
           <Separator className="my-6"/>
           {/* Car Images */}
-
+          <UploadImages triggerUploadImages={triggerUploadImages} setLoader={(v) => {setLoader(v); navigate('/profile')}}/>
 
           {/* Submit Button */}
           <div className="flex mt-10 justify-end">
-            <Button type="submit" onClick={(e) => onsubmit(e)}>Submit</Button>
+            <Button 
+              disabled={loader} 
+              type="submit"
+            >
+              {loader ? (
+                <Loader className="h-4 w-4 animate-spin" />
+              ) : (
+                'Submit'
+              )}
+            </Button>
           </div>
         </form>
-        <UploadImages />
+
       </div>
     </div>
   );
